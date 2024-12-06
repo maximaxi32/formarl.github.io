@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT Bombay SCPP-IoE Workshop</title>
+    <style>
+        /* General Reset */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #3f51b5; /* Material UI Primary Color */
+            color: white;
+            padding: 1rem 1rem 0.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            height: 60px; /* Adjust size as needed */
+        }
+
+        header h1 {
+            margin: 0.5rem 0 0.2rem;
+            font-size: 2rem; /* Increase font size */
+            font-weight: bold;
+        }
+
+        header h2 {
+            color: #e0e0e0; /* Light gray for better contrast */
+            font-size: 1.2rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3f51b5;
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #1a237e; /* Darker Primary */
+        }
+
+        section {
+            padding: 2rem 1rem;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        #home {
+            width: 100%;
+            position: relative;
+            padding: 3rem 1rem;
+            color: white;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('sea.jpg'); /* Add your background image URL here */
+            height: 300px; /* Adjust height based on your image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+
+        
+
+        }
+
+        .home-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .home-overlay h2, .home-overlay p {
+            margin: 0.5rem 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #3f51b5;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #1a237e; /* Darker Primary */
+        }
+
+        .footer {
+            background-color: #3f51b5;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .talk {
+            margin-bottom: 20px;
+        }
+
+        .talk-title {
+            
+            cursor: pointer; /* Makes the title clickable */
+            background-color: #f0f0f0; /* Light background for the title */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .talk-title:hover {
+            background-color: #f7eeee; /* Change background color on hover */
+        }
+
+        .talk-abstract {
+            display: none; /* Initially, the abstract is hidden */
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9; /* Light background for the abstract */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+     
+        .speakers-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px; /* Space between speaker boxes */
+        }
+
+
+   
+
+        .card .speaker-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card .speaker-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .card .speaker-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .card .speaker-link:hover {
+            text-decoration: underline;
+        }
+
+        .card .speaker-college {
+             font-size: 0.9rem; /* Smaller font size for college */
+            color: #777;
+            margin-top: 5px;
+            font-style: italic; 
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Placeholder for IIT Bombay Logo -->
+    <a href="https://www.iitb.ac.in/" target="_blank">
+    <img src="logo.png" alt="IIT Bombay Logo">
+    </a>
+    <h2>IIT Bombay SCPP-IoE Workshop on</h2>
+    <h1>Building Trust in AI: Formal Reasoning for Reinforcement Learning, MDPs, and Probabilistic Models</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#registration">Registration</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+    </ul>
+</nav>
+
+<section id="home">
+    <div class="home-overlay">
+        
+        <h2 style="color:white "> <b>  Workshop Details </b></h2>
+        
+        <br>
+        <p><strong>Date:</strong> December 9th, 4pm IST</p>
+
+        <p><strong>Venue:</strong> 
+            <a href="https://maps.app.goo.gl/3wWcHTXxPtBMJo8x5">
+            CC 105, Computing Complex, IIT Bombay</p>
+            </a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="card">
+        <h2>About</h2>
+        <p>
+            As AI systems increasingly make critical decisions in uncertain and dynamic environments, ensuring their trustworthiness is essential.
+            This short workshop focuses on leveraging formal reasoning techniques to enhance the reliability, safety, and interpretability of
+            Reinforcement Learning (RL), Markov Decision Processes (MDPs), and probabilistic models. The talks will explore foundational methods
+            for verifying system properties, addressing challenges in handling uncertainty, and integrating these approaches into real-world AI systems.
+        </p>
+        <p>
+            The workshop aims to start a conversation between formal methods and AI researchers towards fostering advancements in trustworthy decision-making.
+        </p>
+    </div>
+</section>
+
+
+<section id="speakers">
+    <div class="card">
+    <h2>Speakers</h2>
+
+    <div class="speakers-container">
+        <!-- Speaker 1 -->
+        <div class="card">
+            <img src="srivastava.jpg" alt="Speaker 1" class="speaker-img">
+            <div class="speaker-name">Piyush Srivastava</div>
+            <div class="speaker-name">TIFR, Mumbai</div>
+            <a href="https://www.tifr.res.in/piyush.srivastava/" class="speaker-link" target="_blank">Website</a>
+        </div>
+
+        <!-- Speaker 2 -->
+        <div class="card">
+            <img src="pic5.jpeg" alt="Speaker 2" class="speaker-img">
+            <div class="speaker-name">Shibashis Guha</div>
+            <div class="speaker-name">TIFR, Mumbai</div>
+            <a href="https://www.tifr.res.in/shibashis.guha/" class="speaker-link" target="_blank">Website</a>
+        </div>
+
+        <!-- Speaker 3 -->
+        <div class="card">
+            <img src="suguman.jpg" alt="Speaker 3" class="speaker-img">
+            <div class="speaker-name">Suguman Bansal</div>
+            <div class="speaker-name">Georgia Tech</div>
+            <a href="https://suguman.github.io/" class="speaker-link" target="_blank">Website</a>
+        </div>
+
+        <!-- Speaker 4 -->
+        <div class="card">
+            <img src="shivaram.jpg" alt="Speaker 4" class="speaker-img">
+            <div class="speaker-name">Shivaram Kalyanakrishnan</div>
+            <div class="speaker-name">IIT Bombay</div>
+            <a href="https://www.cse.iitb.ac.in/~shivaram" class="speaker-link" target="_blank">Website</a>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="registration">
+    <div class="card">
+        <h2>Registration</h2>
+        <p>Participation is free, but registration at <a href="https://forms.gle/Wos5esqXNzRpX4q99" target="_blank">this link</a> is mandatory for those attending in person (for managing logistics and refreshments).</p>
+        <p>The workshop itself will be hybrid, though in-person participation is highly encouraged. The Zoom link will be mailed to participants.</p>
+    </div>
+</section>
+
+<section id="schedule">
+    <div class="card">
+    <h2>Schedule</h2>
+
+    <!-- Talk 1 -->
+    <div class="talk">
+        <div class="talk-title" onclick="toggleAbstract('abstract1')">
+            <h3 style="color:black;">4:00 - 4:45pm: "An invitation to causal inference" - Piyush Srivastava</h3>
+        </div>
+        <div class="talk-abstract" id="abstract1">
+            <p>Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.....</p>
+        </div>
+    </div>
+
+    <!-- Talk 2 -->
+    <div class="talk">
+        <div class="talk-title" onclick="toggleAbstract('abstract2')">
+            <h3 style="color:black;">4:45 - 5:30pm: "PAC Statistical Model Checking of Mean Payoff in Discrete- and Continuous-Time MDP" - Shibashis Guha</h3>
+        </div>
+        <div class="talk-abstract" id="abstract2">
+            <p>Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.....</p>
+        </div>
+    </div>
+
+    <!-- Talk 3 -->
+    <div class="talk">
+        <div class="talk-title" onclick="toggleAbstract('abstract3')">
+            <h3 style="color:black;">5:30 - 6:00pm: Tea/Coffee break</h3>
+        </div>
+    </div>
+
+    <!-- Talk 4 -->
+    <div class="talk">
+        <div class="talk-title" onclick="toggleAbstract('abstract4')">
+            <h3 style="color:black;">6:00 - 6:45pm: "Logic-Guided Reinforcement Learning" - Suguman Bansal</h3>
+        </div>
+        <div class="talk-abstract" id="abstract4">
+            <p>Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.....</p>
+        </div>
+    </div>
+
+    <!-- Talk 5 -->
+    <div class="talk">
+        <div class="talk-title" onclick="toggleAbstract('abstract5')">
+            <h3 style="color:black;">6:45 - 7:30pm: "Complexity of Policy Iteration" - Shivaram Kalyanakrishnan</h3>
+        </div>
+        <div class="talk-abstract" id="abstract5">
+            <p>Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.....</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+
+
+
+
+<script>
+    function toggleAbstract(abstractId) {
+        var abstract = document.getElementById(abstractId);
+        if (abstract.style.display === "block") {
+            abstract.style.display = "none"; // Hide the abstract
+        } else {
+            abstract.style.display = "block"; // Show the abstract
+        }
+    }
+</script>
+
+
+<footer class="footer">
+</footer>
+
+</body>
+</html>
